@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Jobs\SendConfirmationEmail;
 use App\Models\Contact;
+use App\Notifications\SendEmailNotification;
 use Illuminate\Http\Request;
 
 class ContactController extends Controller
@@ -28,9 +29,7 @@ class ContactController extends Controller
             'message' => 'required|string',
         ]);
 
-        Contact::create($validated);
-
-        $contact = new Contact();
+        $contact = Contact::create($validated);
 
         SendConfirmationEmail::dispatch($contact);
 

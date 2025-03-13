@@ -6,7 +6,7 @@ use App\Notifications\SendEmailNotification;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Queue\Queueable;
 
-class SendConfirmationEmail 
+class SendConfirmationEmail implements ShouldQueue 
 {
     use Queueable;
 
